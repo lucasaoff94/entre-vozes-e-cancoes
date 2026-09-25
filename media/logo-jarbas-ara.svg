@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="310" viewBox="0 0 2000 310" role="img" aria-labelledby="title desc">
+  <title id="title">Jarbas &amp; Ará Monteiro — marca tipográfica</title>
+  <desc id="desc">Logotipo editorial minimalista em verde musgo e terracota. Textos preservados como texto editável.</desc>
+  <g id="marca-tipografica" fill="#33402D">
+    <text id="nome-completo" x="1000" y="215" font-size="150" letter-spacing="-5" text-anchor="middle"><tspan id="jarbas">Jarbas </tspan><tspan id="e-comercial" dx="12" font-style="italic" fill="#B8613B">&amp;</tspan><tspan id="ara-monteiro" dx="12"> Ará Monteiro</tspan></text>
+  </g>
+</svg>
