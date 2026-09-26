@@ -17,7 +17,7 @@ if (toggle && menu) {
 const tracks = [...document.querySelectorAll('.recordings-grid video')];
 const heroAudio = document.querySelector('#hero-audio');
 if (tracks.length && heroAudio) {
-  const allVideos = [...document.querySelectorAll('video')];
+  const allVideos = [...document.querySelectorAll('video:not(.hero-video)')];
   const label = heroAudio.querySelector('.hero-audio-label');
   const icon = heroAudio.querySelector('.hero-audio-icon');
   let currentTrack = tracks[0];
