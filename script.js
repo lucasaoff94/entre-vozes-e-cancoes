@@ -16,6 +16,7 @@ if (toggle && menu) {
 
 const tracks = [...document.querySelectorAll('.recordings-grid video')];
 const heroAudio = document.querySelector('#hero-audio');
+const heroNext = document.querySelector('#hero-next');
 if (tracks.length && heroAudio) {
   const allVideos = [...document.querySelectorAll('video:not(.hero-video)')];
   const label = heroAudio.querySelector('.hero-audio-label');
@@ -30,6 +31,11 @@ if (tracks.length && heroAudio) {
     heroAudio.setAttribute('aria-label', label.textContent);
     heroAudio.setAttribute('aria-pressed', String(playing));
     heroAudio.setAttribute('aria-controls', currentTrack.id);
+    if (heroNext) {
+      const next = tracks[(tracks.indexOf(currentTrack) + 1) % tracks.length];
+      const nextTitle = next.closest('.recording-card').querySelector('h3').textContent.trim();
+      heroNext.setAttribute('aria-label', `Próxima música: ${nextTitle}`);
+    }
   };
 
   allVideos.forEach(video => video.addEventListener('play', () => {
@@ -60,6 +66,15 @@ if (tracks.length && heroAudio) {
     } else {
       currentTrack.pause();
     }
+    syncAudioButton();
+  });
+
+  if (heroNext) heroNext.addEventListener('click', () => {
+    const nextIndex = (tracks.indexOf(currentTrack) + 1) % tracks.length;
+    if (!currentTrack.paused) currentTrack.pause();
+    currentTrack = tracks[nextIndex];
+    currentTrack.currentTime = 0;
+    currentTrack.play().then(syncAudioButton).catch(syncAudioButton);
     syncAudioButton();
   });
 
